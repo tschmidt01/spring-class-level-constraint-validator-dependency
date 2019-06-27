@@ -1,0 +1,1 @@
+Demonstrates that using dependency injection in a ConstraintValidator which is being validated at class level does not work as expected.
