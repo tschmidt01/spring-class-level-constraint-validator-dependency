@@ -1,8 +1,11 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Component;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+@Component
 public class DemoEntityValidator implements ConstraintValidator<ValidDemoEntity, DemoEntity> {
 
     private DemoEntityRepository demoEntityRepository;

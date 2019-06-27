@@ -1,28 +1,22 @@
 package com.example.demo;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
+@RunWith(SpringRunner.class)
 public class ValidatorInstantiationTest {
 
-    private Validator validator;
-
-    @Before
-    public void setUp() throws Exception {
-        ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-        validator = validatorFactory.getValidator();
-    }
+    @Autowired
+    private DemoEntityRepository demoEntityRepository;
 
     @Test
     public void shouldInitiateAndCallDemoEntityValidator() {
         DemoEntity demoEntity = new DemoEntity();
-        validator.validate(demoEntity);
+        demoEntityRepository.save(demoEntity);
     }
 
 }
